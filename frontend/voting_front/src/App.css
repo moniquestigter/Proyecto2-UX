@@ -125,3 +125,9 @@ textarea{
 .item:hover .delete{
   visibility: visible;
 }
+
+.notified{
+  position: absolute;
+  top: 300px;
+  right: 300px;
+}

@@ -18,7 +18,7 @@ class Product extends React.Component {
         <div className='item'>
         
             <div className='image'>
-              <img src={this.props.productImageUrl} />
+              <img src={this.props.productImageUrl}/>
             </div>
             <div className='middle aligned content'>
                 <div className='header'>

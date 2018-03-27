@@ -52,7 +52,7 @@ class ProductForm extends Component{
                     <textarea className="input" name="description" placeholder="Description: "
                     value={this.state.description} onChange={this.handleInput}></textarea>
                     <h4 className="posLabelUrl">Image Url: </h4>
-                    <input className="input-three" type="text" name="productImg" 
+                    <input className="input-three" type="text" name="productImageUrl" 
                     value={this.state.productImageUrl} 
                     onChange={this.handleInput} />
 

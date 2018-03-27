@@ -10,6 +10,7 @@ class ProductsContainer extends Component{
 		super(props)
 		this.state = {
 			products: [],
+			images: [],
 			editingProductId: null,
 			notification: ''
 		}
@@ -38,7 +39,7 @@ class ProductsContainer extends Component{
 		  this.setState({
 		  products: nextProducts,
 		});
-	  }
+		}
 
 	addNewProduct = () => {
 		axios.post(
@@ -54,7 +55,7 @@ class ProductsContainer extends Component{
 			//agregar las nuevas ideas sin tener que refresh manualmente 
 			console.log(response)
 			const products = update(this.state.products, {
-				$splice: [[0,0, response.data]]
+				$splice: [[0,0,response.data]]
 			})
 			this.setState({
 				products: products,
