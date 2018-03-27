@@ -69,6 +69,20 @@
   right: 240px;
 }
 
+.input-four{
+  background: none;
+  outline: solid;
+  outline-width: 0.1px;
+  outline-color: silver;
+  border: 0;
+  width: 140px;
+  margin-top: 10px;
+  font-size: 11px;
+  position: absolute;
+  top: 299px;
+  right: 240px;
+}
+
 .input:focus{
   border: solid 1px lightgray;
 }
@@ -95,6 +109,12 @@ textarea{
 .posLabelUrl{
   position: absolute;
   top: 236px;
+  right: 390px;
+}
+
+.posLabelUrl2{
+  position: absolute;
+  top: 280px;
   right: 390px;
 }
 
@@ -128,6 +148,6 @@ textarea{
 
 .notified{
   position: absolute;
-  top: 300px;
+  top: 350px;
   right: 300px;
 }

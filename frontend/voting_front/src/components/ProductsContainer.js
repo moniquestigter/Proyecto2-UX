@@ -48,7 +48,8 @@ class ProductsContainer extends Component{
 				{
 					title: '',
 					description: '',
-					productImageUrl: ''
+					productImageUrl: '',
+					submitterAvatarUrl: ''
 				}
 			}
 		).then(response => {

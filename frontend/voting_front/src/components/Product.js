@@ -13,6 +13,8 @@ class Product extends React.Component {
         this.props.onDelete(this.props.id)
       }
 
+      
+
     render() {
         return (
         <div className='item'>

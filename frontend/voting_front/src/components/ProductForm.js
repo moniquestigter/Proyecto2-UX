@@ -55,6 +55,10 @@ class ProductForm extends Component{
                     <input className="input-three" type="text" name="productImageUrl" 
                     value={this.state.productImageUrl} 
                     onChange={this.handleInput} />
+                    <h4 className="posLabelUrl2">Avatar Url: </h4>
+                    <input className="input-four" type="text" name="submitterAvatarUrl" 
+                    value={this.state.submitterAvatarUrl} 
+                    onChange={this.handleInput} />
 
                 </form>
             </div>
