@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-class ProductFrom extends Component{
+class ProductForm extends Component{
     constructor(props){
 		super(props)
 		this.state = {
@@ -62,4 +62,4 @@ class ProductFrom extends Component{
     }
 }
 
-export default ProductFrom
+export default ProductForm

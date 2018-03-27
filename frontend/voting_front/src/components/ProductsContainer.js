@@ -126,10 +126,7 @@ class ProductsContainer extends Component{
 							if(this.state.editingProductId === product.id){
 								return(<ProductForm product={product} key={product.id} updateProduct={this.updateProduct}
 								reset={this.reset}/>)
-							} else {
-								return (<Product product = {product} key={product.id} onClick={this.enableEditing}
-								         onDelete={this.delete}/>)
-							}
+							} 
 						})}
       </div>
     );
