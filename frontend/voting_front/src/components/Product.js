@@ -5,9 +5,18 @@ class Product extends React.Component {
       this.props.onVote(this.props.id)
       );
 
+      handleClick = () => {
+          this.props.onClick(this.props.id)
+      }
+
+      handleDelete = () => {
+        this.props.onDelete(this.props.id)
+      }
+
     render() {
         return (
         <div className='item'>
+        
             <div className='image'>
               <img src={this.props.productImageUrl} />
             </div>
@@ -18,7 +27,7 @@ class Product extends React.Component {
                     </a>
                     {this.props.votes}
                 </div>
-                <div className='description'>
+                <div className='description' onClick={this.handleClick}>
                     <a href={this.props.url}>
                       {this.props.title}
                     </a>
@@ -27,6 +36,7 @@ class Product extends React.Component {
                 <div className='extra'>
                     <span>Submitted by:</span>
                     <img className='ui avatar image'src={this.props.submitterAvatarUrl}/>
+                    <span className='delete' onClick={this.handleDelete}>Delete</span>
                 </div>
             </div>
         </div>

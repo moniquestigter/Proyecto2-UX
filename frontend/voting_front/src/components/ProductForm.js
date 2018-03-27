@@ -15,6 +15,7 @@ class ProductFrom extends Component{
     }
 
     handleInput = (e) => {
+        this.props.reset()
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -43,12 +44,18 @@ class ProductFrom extends Component{
     render() {
         return(
             <div className= "tile">
-                <form onBlur={this.handleBlur }>
-                    <input className="input" type="text" name="title" 
-                    placeholder="Enter a Title" value={this.state.title} 
+                <form onBlur={this.handleBlur}>
+                <h4 className="posLabel">Title: </h4>
+                    <input className="input-two" type="text" name="title" 
+                    value={this.state.title} 
                     onChange={this.handleInput} />
                     <textarea className="input" name="description" placeholder="Description: "
                     value={this.state.description} onChange={this.handleInput}></textarea>
+                    <h4 className="posLabelUrl">Image Url: </h4>
+                    <input className="input-three" type="text" name="productImg" 
+                    value={this.state.productImageUrl} 
+                    onChange={this.handleInput} />
+
                 </form>
             </div>
         );

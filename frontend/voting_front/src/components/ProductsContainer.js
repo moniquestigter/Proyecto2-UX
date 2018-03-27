@@ -10,7 +10,8 @@ class ProductsContainer extends Component{
 		super(props)
 		this.state = {
 			products: [],
-			editingProductId: null
+			editingProductId: null,
+			notification: ''
 		}
 	}
 
@@ -45,7 +46,8 @@ class ProductsContainer extends Component{
 			{ product:
 				{
 					title: '',
-                    description: ''
+					description: '',
+					productImageUrl: ''
 				}
 			}
 		).then(response => {
@@ -68,7 +70,29 @@ class ProductsContainer extends Component{
 		const products = update(this.state.products,{
 			[productIndex]: { $set: product }
 		})
-		this.setState({products: products})
+		this.setState({products: products, notification: 'Saved'})
+	}
+
+	reset = () => {
+		{this.setState({notification: ''})}
+	}
+
+	enableEditing = (id) => {
+		this.setState({editingProductId: id})
+	}
+
+	delete = (id) => {
+		axios.delete(
+			`http://localhost:3001/api/v1/products/${id}`
+		).then(response => {
+			const productIndex = this.state.products.findIndex(x => x.id === id)
+			const products = update(this.state.products, {
+				$splice: [[productIndex, 1]]
+			})
+			this.setState({products: products})
+		}).catch(error => {
+			console.log(error)
+		})
 	}
 
 
@@ -86,12 +110,27 @@ class ProductsContainer extends Component{
           votes={product.votes}
           submitterAvatarUrl={product.submitterAvatarUrl}
           productImageUrl={product.productImageUrl}
-          onVote={this.handleProductUpVote}
+					onVote={this.handleProductUpVote}
+					onClick={this.enableEditing}
+					onDelete={this.delete}
         />
     ));
     return (
       <div className='ui unstackable items'>
-        {productComponents}
+				{productComponents}
+					<button className="newProductButton" onClick={this.addNewProduct}>
+						New Product
+					</button>
+					<span className="notified">{this.state.notification}</span>
+						{this.state.products.map((product) => {
+							if(this.state.editingProductId === product.id){
+								return(<ProductForm product={product} key={product.id} updateProduct={this.updateProduct}
+								reset={this.reset}/>)
+							} else {
+								return (<Product product = {product} key={product.id} onClick={this.enableEditing}
+								         onDelete={this.delete}/>)
+							}
+						})}
       </div>
     );
   }
