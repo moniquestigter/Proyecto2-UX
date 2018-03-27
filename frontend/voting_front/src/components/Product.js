@@ -13,13 +13,11 @@ class Product extends React.Component {
         this.props.onDelete(this.props.id)
       }
 
-      
-
     render() {
         return (
         <div className='item'>
         
-            <div className='image'>
+            <div className='image' onClick={this.handleClick}>
               <img src={this.props.productImageUrl}/>
             </div>
             <div className='middle aligned content'>

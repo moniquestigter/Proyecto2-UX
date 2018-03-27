@@ -28,7 +28,7 @@ module Api::V1
 		private
 
 		def product_params
-			params.require(:product).permit(:title, :description, :productImageUrl, :submitterAvatarUrl)
+			params.require(:product).permit(:title, :description, :productImageUrl, :submitterAvatarUrl, :votes)
 		end
 
     end
