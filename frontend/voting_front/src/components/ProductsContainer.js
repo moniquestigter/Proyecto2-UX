@@ -17,7 +17,7 @@ class ProductsContainer extends Component{
 	}
 
 	componentDidMount(){
-		axios.get('http://localhost:3001/api/v1/products.json').then(
+		axios.get('https://serene-ridge-78379.herokuapp.com/api/v1/products.json').then(
 			response => {
 				console.log(response)
 				this.setState({products: response.data})
@@ -43,7 +43,7 @@ class ProductsContainer extends Component{
 
 	addNewProduct = () => {
 		axios.post(
-			'http://localhost:3001/api/v1/products',
+			'https://serene-ridge-78379.herokuapp.com/api/v1/products',
 			{ product:
 				{
 					title: '',
@@ -85,7 +85,7 @@ class ProductsContainer extends Component{
 
 	delete = (id) => {
 		axios.delete(
-			`http://localhost:3001/api/v1/products/${id}`
+			`https://serene-ridge-78379.herokuapp.com/api/v1/products/${id}`
 		).then(response => {
 			const productIndex = this.state.products.findIndex(x => x.id === id)
 			const products = update(this.state.products, {

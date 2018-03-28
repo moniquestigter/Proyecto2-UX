@@ -31,7 +31,7 @@ class ProductForm extends Component{
             productImageUrl: this.state.productImageUrl
         }
         axios.put(
-            `http://localhost:3001/api/v1/products/${this.props.product.id}`,
+            `https://serene-ridge-78379.herokuapp.com/api/v1/products/${this.props.product.id}`,
             {
                 product: product
             }
